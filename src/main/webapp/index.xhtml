@@ -8,29 +8,41 @@
 <h:head>
 	<title><h:outputText value="One Click" /></title>	
 	<h:outputStylesheet library="bootstrap-3.2.0-dist/css"	name="bootstrap.min.css" />
+	<h:outputStylesheet library="css"	name="click.css" />
 </h:head>
 <h:body>
 
 <div class="container">
-	<div class="jumbotron">
+	<div class="jumbotron padblock">
+		<div class="col-sm 8">
 		<h5><h:messages id="message" styleClass="alert alert-info list-unstyled"/></h5>
 	
 	<h1 id="helloMessage"><h:outputText value="#{clickController.message}" /></h1>
 	 <h:form id="clickForm" prependId="false">
-	 <h:commandButton value="Click here"
-						styleClass="btn btn-primary"
+	 <h:commandButton value="CLICK HERE" title="See the magic" 
+						styleClass="btn btn-lg btn-button"
 						actionListener="#{clickController.oneClick}"
-						id="actionButtonButton">
+						id="actionButton">
 						<f:passThroughAttribute name="data-loading-text"  value="Wait for it..."/>
 						</h:commandButton>
 	  
 	 </h:form>
- </div>
- </div>
+	 </div>
+	 </div>
+  </div>
+ 
+ <div class="footer">
+      <div class="container">
+					<h:outputLink value="https://github.com/erickrar" target="_blank" title ="Erickrar on GitHub">
+						<h6 class="text-center"><h:outputText  value="Developed by erickrar"/></h6>
+					</h:outputLink>
+      </div>
+    </div>
+ 
 <h:outputScript library="js" name="jquery-1.11.1.min.js" />
 <h:outputScript library="bootstrap-3.2.0-dist/js" name="bootstrap.min.js" />
 <script>
-$('#actionButtonButton').click(function () {
+$('#actionButton').click(function () {
 	 var $btn = $(this);
 	    $btn.button('loading');
 	    document.getElementById('#clickForm').submit();

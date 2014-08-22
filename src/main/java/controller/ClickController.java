@@ -5,12 +5,12 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class ClickController implements Serializable {
 	private static final long serialVersionUID = -2288101924751697966L;
 
@@ -26,6 +26,18 @@ public class ClickController implements Serializable {
 	}
 
 	public void oneClick(ActionEvent event){
+			 new Runnable() {
+				@Override
+				public void run() {
+					System.out.println("Just sleep, baby..");
+					 try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}.run();
+		  System.out.println("Hello click my old friend...");
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("One click only :)"));	
 	}
 }

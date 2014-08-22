@@ -42,13 +42,13 @@
 <h:outputScript library="js" name="jquery-1.11.1.min.js" />
 <h:outputScript library="bootstrap-3.2.0-dist/js" name="bootstrap.min.js" />
 <script>
-$('#actionButton').click(function () {
-	 var $btn = $(this);
+$(document).on("click", "#actionButton", function(){
+	var $btn = $(this);
 	    $btn.button('loading');
-	    document.getElementById('#clickForm').submit();
-	    btn.button('reset');
+	    $('#clickForm').submit(); 
+	    btn.button('reset'); 
 });
-</script>
+</script>  
 </h:body>
 
 </html>
